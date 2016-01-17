@@ -5,7 +5,6 @@ api_tag {
 		disableAllHeaderCode = 1
 		debug = 0
 		no_cache = 1
-		additionalHeaders = Content-type:application/json
 	}
 	typeNum = 1452982642
 	10 < tt_content.list.20.jsonexample_json_tag

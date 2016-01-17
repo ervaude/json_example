@@ -41,7 +41,6 @@ class TagController extends AbstractApiController
      */
     public function showAction(Tag $tag)
     {
-        $this->view->setVariablesToRender([$this->resourceArgumentName]);
         $this->view->assign($this->resourceArgumentName, $tag);
     }
 }
