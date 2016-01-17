@@ -1,0 +1,33 @@
+{
+  "name": "danielgoerz/json-example",
+  "type": "typo3-cms-extension",
+  "description": "An example extensions implementing a simple API.",
+  "keywords": [
+    "TYPO3",
+    "extension",
+    "json",
+    "api"
+  ],
+  "homepage": "https://usetypo3.com",
+  "authors": [
+    {
+      "name": "Daniel Goerz",
+      "role": "Developer",
+      "homepage": "https://usetypo3.com"
+    }
+  ],
+  "license": [
+    "GPL-2.0+"
+  ],
+  "require": {
+    "typo3/cms-core": ">=7.6.0,<7.6.99"
+  },
+  "autoload": {
+    "psr-4": {
+      "DanielGoerz\\JsonExample\\": "Classes"
+    }
+  },
+  "replace": {
+    "json_example": "self.version"
+  }
+}
