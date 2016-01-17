@@ -20,7 +20,7 @@ use DanielGoerz\JsonExample\Domain\Model\Post;
  *
  * @author Daniel Goerz <ervaude@gmail.com>
  */
-class PostController extends AbstractRestController
+class PostController extends AbstractApiController
 {
     /**
      * @var string

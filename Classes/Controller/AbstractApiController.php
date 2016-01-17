@@ -14,7 +14,6 @@ namespace DanielGoerz\JsonExample\Controller;
  * The TYPO3 project - inspiring people to share!
  */
 use DanielGoerz\JsonExample\Mvc\View\JsonView;
-use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
@@ -22,7 +21,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  *
  * @author Daniel Goerz <ervaude@gmail.com>
  */
-abstract class AbstractRestController extends ActionController
+abstract class AbstractApiController extends ActionController
 {
     /**
      * @var \TYPO3\CMS\Extbase\Mvc\View\JsonView

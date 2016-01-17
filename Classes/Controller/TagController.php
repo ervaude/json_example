@@ -20,7 +20,7 @@ use DanielGoerz\JsonExample\Domain\Model\Tag;
  *
  * @author Daniel Goerz <ervaude@gmail.com>
  */
-class TagController extends AbstractRestController
+class TagController extends AbstractApiController
 {
     /**
      * @var string
