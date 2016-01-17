@@ -1,0 +1,18 @@
+
+api_tag = PAGE
+api_tag {
+	config {
+		disableAllHeaderCode = 1
+		debug = 0
+		no_cache = 1
+		additionalHeaders = Content-type:application/json
+	}
+	typeNum = 1452982642
+	10 < tt_content.list.20.jsonexample_json_tag
+}
+
+api_post < api_tag
+api_post {
+	typeNum = 1452982643
+	10 < tt_content.list.20.jsonexample_json_post
+}
