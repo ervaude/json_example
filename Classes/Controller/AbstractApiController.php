@@ -88,5 +88,4 @@ abstract class AbstractApiController extends ActionController
         $this->view->setVariablesToRender([$this->resourceArgumentName . 's']);
         $this->view->assign($this->resourceArgumentName . 's', $this->resourceRepository->findAll());
     }
-
 }

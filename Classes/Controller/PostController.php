@@ -41,6 +41,7 @@ class PostController extends AbstractApiController
      */
     public function showAction(Post $post)
     {
+        $this->view->setVariablesToRender([$this->resourceArgumentName]);
         $this->view->assign($this->resourceArgumentName, $post);
     }
 }
