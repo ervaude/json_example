@@ -50,7 +50,7 @@ class JsonView extends ExtbaseJsonView
         'post' => [
             '_exclude' => ['pid'],
             '_descend' => [
-                'tagsArray' => [
+                'tags' => [
                     '_descendAll' => [
                         '_only' => ['uid']
                     ]
