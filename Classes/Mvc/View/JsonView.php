@@ -14,6 +14,7 @@ namespace DanielGoerz\JsonExample\Mvc\View;
  * The TYPO3 project - inspiring people to share!
  */
 use TYPO3\CMS\Extbase\Mvc\View\JsonView as ExtbaseJsonView;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * Class JsonView
@@ -38,7 +39,7 @@ class JsonView extends ExtbaseJsonView
             '_descendAll' => [
                 '_exclude' => ['pid'],
                 '_descend' => [
-                    'tagsArray' => [
+                    'tags' => [
                         '_descendAll' => [
                             '_only' => ['uid']
                         ]
@@ -57,4 +58,19 @@ class JsonView extends ExtbaseJsonView
             ]
         ]
     ];
+
+    /**
+     * Transforming ObjectStorages to Arrays for the JSON view
+     *
+     * @param mixed $value
+     * @param array $configuration
+     * @return array
+     */
+    protected function transformValue($value, array $configuration)
+    {
+        if ($value instanceof ObjectStorage) {
+            $value = $value->toArray();
+        }
+        return parent::transformValue($value, $configuration);
+    }
 }

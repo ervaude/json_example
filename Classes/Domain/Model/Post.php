@@ -93,14 +93,4 @@ class Post extends AbstractEntity
     {
         $this->tags = $tags;
     }
-
-    /**
-     * Wrapper for JSON view
-     *
-     * @return array
-     */
-    public function getTagsArray()
-    {
-        return $this->tags->toArray();
-    }
 }
