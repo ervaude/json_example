@@ -14,6 +14,7 @@ namespace DanielGoerz\JsonExample\Controller;
  * The TYPO3 project - inspiring people to share!
  */
 use DanielGoerz\JsonExample\Domain\Model\Post;
+use DanielGoerz\JsonExample\Domain\Repository\PostRepository;
 
 /**
  * Class TagController
@@ -29,15 +30,21 @@ class PostController extends AbstractApiController
 
     /**
      * @var \DanielGoerz\JsonExample\Domain\Repository\PostRepository
-     * @inject
      */
     protected $resourceRepository;
+
+    /**
+     * @param PostRepository $resourceRepository
+     */
+    public function injectResourceRepository(PostRepository $resourceRepository)
+    {
+        $this->resourceRepository = $resourceRepository;
+    }
 
     /**
      * Action Show
      *
      * @param Post $post
-     * @return void
      */
     public function showAction(Post $post)
     {
