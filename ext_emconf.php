@@ -15,7 +15,7 @@ $EM_CONF[$_EXTKEY] = [
     'author_company'     => 'Lightwerk GmbH',
     'constraints'        => [
         'depends'   => [
-            'typo3' => '7.5.0-9.99.99'
+            'typo3' => '8.6.0-9.99.99'
         ],
         'conflicts' => [],
         'suggests'  => []
