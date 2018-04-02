@@ -16,14 +16,15 @@ return [
             'starttime' => 'starttime',
             'endtime'   => 'endtime',
         ],
-        'iconfile'      => 'EXT:json_example/ext_icon.gif'
+        'iconfile'      => 'EXT:json_example/Resources/Public/Icons/Extension.gif'
     ],
     'interface' => [
         'showRecordFieldList' => 'hidden, title, post_text, tags',
     ],
     'types'     => [
         '1' => [
-            'showitem' => 'hidden;;1, title, post_text, tags, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'
+            'showitem' => 'hidden, title, post_text, tags,'
+            . '--div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'
         ],
     ],
     'palettes'  => [
@@ -68,7 +69,7 @@ return [
 
         'title' => [
             'exclude' => 1,
-            'label'   => 'title',
+            'label'   => 'Title',
             'config'  => [
                 'type' => 'input',
                 'size' => 30,
@@ -79,8 +80,8 @@ return [
             'exclude' => 1,
             'label'   => 'Text',
             'config'  => [
-                'type' => 'input',
-                'size' => 30,
+                'type' => 'text',
+                'rows' => 6,
                 'eval' => 'trim'
             ],
         ],

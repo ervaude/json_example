@@ -10,7 +10,6 @@ return [
         'tstamp'        => 'tstamp',
         'crdate'        => 'crdate',
         'cruser_id'     => 'cruser_id',
-        'dividers2tabs' => true,
 
         'delete'        => 'deleted',
         'enablecolumns' => [
@@ -18,13 +17,13 @@ return [
             'starttime' => 'starttime',
             'endtime'   => 'endtime',
         ],
-        'iconfile'      => 'EXT:json_example/ext_icon.gif'
+        'iconfile'      => 'EXT:json_example/Resources/Public/Icons/Extension.gif'
     ],
     'interface' => [
         'showRecordFieldList' => 'hidden, title',
     ],
     'types'     => [
-        '1' => ['showitem' => 'hidden;;1, title, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+        '1' => ['showitem' => 'hidden, title, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'],
     ],
     'palettes'  => [
         '1' => ['showitem' => ''],
@@ -68,7 +67,7 @@ return [
 
         'title' => [
             'exclude' => 1,
-            'label'   => 'title',
+            'label'   => 'Title',
             'config'  => [
                 'type' => 'input',
                 'size' => 30,
