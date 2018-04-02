@@ -1,3 +1,4 @@
+plugin.tx_jsonexample.features.requireCHashArgumentForActionArguments = 0
 
 api_tag = PAGE
 api_tag {
@@ -6,6 +7,7 @@ api_tag {
 		debug = 0
 		no_cache = 1
 	}
+
 	typeNum = 1452982642
 	10 < tt_content.list.20.jsonexample_json_tag
 }

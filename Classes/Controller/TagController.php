@@ -14,6 +14,7 @@ namespace DanielGoerz\JsonExample\Controller;
  * The TYPO3 project - inspiring people to share!
  */
 use DanielGoerz\JsonExample\Domain\Model\Tag;
+use DanielGoerz\JsonExample\Domain\Repository\TagRepository;
 
 /**
  * Class TagController
@@ -29,9 +30,13 @@ class TagController extends AbstractApiController
 
     /**
      * @var \DanielGoerz\JsonExample\Domain\Repository\TagRepository
-     * @inject
      */
     protected $resourceRepository;
+
+    public function injectResourceRepository(TagRepository $resourceRepository)
+    {
+        $this->resourceRepository = $resourceRepository;
+    }
 
     /**
      * Action Show

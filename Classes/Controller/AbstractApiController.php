@@ -47,6 +47,8 @@ abstract class AbstractApiController extends ActionController
      * Resolves and checks the current action method name
      *
      * @return string Method name of the current action
+     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
+     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
      */
     protected function resolveActionMethodName()
     {
@@ -54,20 +56,23 @@ abstract class AbstractApiController extends ActionController
             case 'HEAD':
             case 'GET':
                 $actionName = ($this->request->hasArgument($this->resourceArgumentName)) ? 'show' : 'list';
-                break;
+                return $actionName . 'Action';
+
+            // Not supported in Example
             case 'POST':
             case 'PUT':
             case 'DELETE':
             default:
                 $this->throwStatus(400, null, 'Bad Request.');
         }
-        return $actionName . 'Action';
+        $this->throwStatus(400, null, 'Bad Request.');
     }
 
     /**
      * Maps arguments delivered by the request object to the local controller arguments.
      *
-     * @return void
+     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
+     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\UnsupportedRequestTypeException
      */
     protected function mapRequestArgumentsToControllerArguments()
     {
@@ -80,8 +85,6 @@ abstract class AbstractApiController extends ActionController
 
     /**
      * Action List
-     *
-     * @return void
      */
     public function listAction()
     {
