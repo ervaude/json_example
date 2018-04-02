@@ -1,6 +1,6 @@
 <?php
 if (!defined('TYPO3_MODE')) {
-    die ('Access denied.');
+    die('Access denied.');
 }
 
 return [
@@ -10,8 +10,6 @@ return [
         'tstamp'        => 'tstamp',
         'crdate'        => 'crdate',
         'cruser_id'     => 'cruser_id',
-        'dividers2tabs' => true,
-
         'delete'        => 'deleted',
         'enablecolumns' => [
             'disabled'  => 'hidden',
@@ -24,7 +22,9 @@ return [
         'showRecordFieldList' => 'hidden, title, post_text, tags',
     ],
     'types'     => [
-        '1' => ['showitem' => 'hidden;;1, title, post_text, tags, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+        '1' => [
+            'showitem' => 'hidden;;1, title, post_text, tags, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'
+        ],
     ],
     'palettes'  => [
         '1' => ['showitem' => ''],
@@ -39,36 +39,31 @@ return [
             ],
         ],
         'starttime' => [
-            'exclude'   => 1,
-            'l10n_mode' => 'mergeIfNotBlank',
-            'label'     => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
-            'config'    => [
-                'type'     => 'input',
-                'size'     => 13,
-                'max'      => 20,
-                'eval'     => 'datetime',
-                'checkbox' => 0,
-                'default'  => 0,
-                'range'    => [
-                    'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-                ],
+            'exclude' => true,
+            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+            'config' => [
+                'type' => 'input',
+                'renderType' => 'inputDateTime',
+                'eval' => 'datetime,int',
+                'default' => 0
             ],
+            'l10n_mode' => 'exclude',
+            'l10n_display' => 'defaultAsReadonly'
         ],
-        'endtime'   => [
-            'exclude'   => 1,
-            'l10n_mode' => 'mergeIfNotBlank',
-            'label'     => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
-            'config'    => [
-                'type'     => 'input',
-                'size'     => 13,
-                'max'      => 20,
-                'eval'     => 'datetime',
-                'checkbox' => 0,
-                'default'  => 0,
-                'range'    => [
-                    'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-                ],
+        'endtime' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
+            'config' => [
+                'type' => 'input',
+                'renderType' => 'inputDateTime',
+                'eval' => 'datetime,int',
+                'default' => 0,
+                'range' => [
+                    'upper' => mktime(0, 0, 0, 1, 1, 2038)
+                ]
             ],
+            'l10n_mode' => 'exclude',
+            'l10n_display' => 'defaultAsReadonly'
         ],
 
         'title' => [
