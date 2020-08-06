@@ -1,54 +1,38 @@
 <?php
+declare(strict_types=1);
 namespace DanielGoerz\JsonExample\Controller;
 
 /*
- * This file is part of the TYPO3 CMS project.
+ * This file is part of TYPO3 CMS-based extension json_example by Daniel Goerz.
  *
  * It is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License, either version 2
  * of the License, or any later version.
- *
- * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
  */
+
 use DanielGoerz\JsonExample\Domain\Model\Post;
 use DanielGoerz\JsonExample\Domain\Repository\PostRepository;
 
-/**
- * Class TagController
- *
- * @author Daniel Goerz <ervaude@gmail.com>
- */
 class PostController extends AbstractApiController
 {
-    /**
-     * @var string
-     */
-    protected $resourceArgumentName = 'post';
+    protected string $resourceArgumentName = 'post';
 
-    /**
-     * @var \DanielGoerz\JsonExample\Domain\Repository\PostRepository
-     */
-    protected $resourceRepository;
+    protected PostRepository $postRepository;
 
-    /**
-     * @param PostRepository $resourceRepository
-     */
-    public function injectResourceRepository(PostRepository $resourceRepository)
+    public function __construct(PostRepository $postRepository)
     {
-        $this->resourceRepository = $resourceRepository;
+        $this->postRepository = $postRepository;
     }
 
-    /**
-     * Action Show
-     *
-     * @param Post $post
-     */
-    public function showAction(Post $post)
+    public function showAction(Post $post): void
     {
         $this->view->setVariablesToRender([$this->resourceArgumentName]);
         $this->view->assign($this->resourceArgumentName, $post);
+    }
+
+    public function listAction(): void
+    {
+        $this->view->setVariablesToRender([$this->resourceArgumentName . 's']);
+        $this->view->assign($this->resourceArgumentName . 's', $this->postRepository->findAll());
     }
 }

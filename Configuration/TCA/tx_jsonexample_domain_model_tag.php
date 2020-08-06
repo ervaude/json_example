@@ -14,16 +14,11 @@ return [
         'delete'        => 'deleted',
         'enablecolumns' => [
             'disabled'  => 'hidden',
-            'starttime' => 'starttime',
-            'endtime'   => 'endtime',
         ],
         'iconfile'      => 'EXT:json_example/Resources/Public/Icons/Extension.gif'
     ],
-    'interface' => [
-        'showRecordFieldList' => 'hidden, title',
-    ],
     'types'     => [
-        '1' => ['showitem' => 'hidden, title, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+        '1' => ['showitem' => 'hidden, title'],
     ],
     'palettes'  => [
         '1' => ['showitem' => ''],
@@ -32,39 +27,20 @@ return [
 
         'hidden'    => [
             'exclude' => 1,
-            'label'   => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
-            'config'  => [
+            'label'   => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.enabled',
+            'config' => [
                 'type' => 'check',
-            ],
-        ],
-        'starttime' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
-            'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime,int',
-                'default' => 0
-            ],
-            'l10n_mode' => 'exclude',
-            'l10n_display' => 'defaultAsReadonly'
-        ],
-        'endtime' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
-            'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime,int',
+                'renderType' => 'checkboxToggle',
                 'default' => 0,
-                'range' => [
-                    'upper' => mktime(0, 0, 0, 1, 1, 2038)
-                ]
-            ],
-            'l10n_mode' => 'exclude',
-            'l10n_display' => 'defaultAsReadonly'
+                'items' => [
+                    [
+                        0 => '',
+                        1 => '',
+                        'invertStateDisplay' => true
+                    ]
+                ],
+            ]
         ],
-
         'title' => [
             'exclude' => 1,
             'label'   => 'Title',

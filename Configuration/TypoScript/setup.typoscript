@@ -1,11 +1,14 @@
-plugin.tx_jsonexample.features.requireCHashArgumentForActionArguments = 0
-
 api_tag = PAGE
 api_tag {
 	config {
 		disableAllHeaderCode = 1
 		debug = 0
-		no_cache = 1
+		additionalHeaders {
+			10 {
+				header = Content-Type: application/json
+				replace = 1
+			}
+		}
 	}
 
 	typeNum = 1452982642
