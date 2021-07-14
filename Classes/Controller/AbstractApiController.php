@@ -15,7 +15,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * Class AbstractRestController
+ * Class AbstractApiController
  *
  * @author Daniel Goerz <daniel.goerz+github@posteo.de>
  */
